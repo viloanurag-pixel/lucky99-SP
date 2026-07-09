@@ -3,7 +3,8 @@
   var REDIRECT_URL = 'https://dealdiscovery.online/';
   var isLander = window.location.pathname.indexOf('lander.html') !== -1;
 
-  if (!isLander && localStorage.getItem(STORAGE_KEY)) return;
+  // Function to create and show the popup
+  (function showPopup() {
 
   var style = document.createElement('style');
   style.textContent = [
@@ -80,4 +81,7 @@
       if (e.target === overlay) closePopup();
     });
   }
+
+  })(); // end of showPopup function, and execute it immediately
+
 })();

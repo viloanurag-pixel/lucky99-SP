@@ -20,51 +20,24 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #0f4524;
+    /* Add a dark overlay, set fallback color, and mobile background image */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), #0f4524 url('assets/img/mobile.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #fff;
     position: relative;
     overflow-x: hidden;
   }
 
-  /* Pitch lines background pattern */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      /* Center circle */
-      radial-gradient(circle at 50% 50%, transparent 14%, rgba(255,255,255,0.04) 14.5%, transparent 15%),
-      /* Center spot */
-      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.07) 0.4%, transparent 0.5%),
-      /* Halfway line */
-      linear-gradient(to bottom, transparent 49.6%, rgba(255,255,255,0.05) 49.6%, rgba(255,255,255,0.05) 50.4%, transparent 50.4%),
-      /* Left penalty arc */
-      radial-gradient(circle at 14% 50%, transparent 9%, rgba(255,255,255,0.04) 9.5%, transparent 10%),
-      /* Right penalty arc */
-      radial-gradient(circle at 86% 50%, transparent 9%, rgba(255,255,255,0.04) 9.5%, transparent 10%),
-      /* Outer border */
-      linear-gradient(to right, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 3%, transparent 3%),
-      linear-gradient(to right, transparent 97%, rgba(255,255,255,0.05) 97%, rgba(255,255,255,0.05) 100%),
-      linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 2%, transparent 2%),
-      linear-gradient(to bottom, transparent 98%, rgba(255,255,255,0.05) 98%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Subtle grass stripe overlay */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-      180deg,
-      rgba(255,255,255,0.015) 0px,
-      rgba(255,255,255,0.015) 40px,
-      transparent 40px,
-      transparent 80px
-    );
-    pointer-events: none;
-    z-index: 0;
+  /* Use a media query to set the desktop background image */
+  @media (min-width: 769px) {
+    body {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), #0f4524 url('assets/img/image.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 
   /* MAIN CONTENT */
@@ -229,5 +202,4 @@
 <script src="assets/popup.js"></script>
 </body>
 
-<!-- Mirrored from be-fimal.netlify.app/lander.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jun 2026 08:07:28 GMT -->
 </html>
