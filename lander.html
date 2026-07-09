@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from be-fimal.netlify.app/lander.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jun 2026 08:07:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Global Football Hub — your trusted guide for world football, leagues, tactics, and match analysis." />
+<title>Welcome — Global Football Hub</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0f4524;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Pitch lines background pattern */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      /* Center circle */
+      radial-gradient(circle at 50% 50%, transparent 14%, rgba(255,255,255,0.04) 14.5%, transparent 15%),
+      /* Center spot */
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.07) 0.4%, transparent 0.5%),
+      /* Halfway line */
+      linear-gradient(to bottom, transparent 49.6%, rgba(255,255,255,0.05) 49.6%, rgba(255,255,255,0.05) 50.4%, transparent 50.4%),
+      /* Left penalty arc */
+      radial-gradient(circle at 14% 50%, transparent 9%, rgba(255,255,255,0.04) 9.5%, transparent 10%),
+      /* Right penalty arc */
+      radial-gradient(circle at 86% 50%, transparent 9%, rgba(255,255,255,0.04) 9.5%, transparent 10%),
+      /* Outer border */
+      linear-gradient(to right, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 3%, transparent 3%),
+      linear-gradient(to right, transparent 97%, rgba(255,255,255,0.05) 97%, rgba(255,255,255,0.05) 100%),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 2%, transparent 2%),
+      linear-gradient(to bottom, transparent 98%, rgba(255,255,255,0.05) 98%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Subtle grass stripe overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 40px,
+      transparent 40px,
+      transparent 80px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* MAIN CONTENT */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Ball icon */
+  .ball {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  /* Brand */
+  .brand-eyebrow {
+    font-family: Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #f5a623;
+    margin-bottom: 0.8rem;
+  }
+
+  h1 {
+    font-family: 'Arial Black', Impact, sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  h1 span {
+    color: #f5a623;
+  }
+
+  .tagline {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: rgba(255,255,255,0.75);
+    max-width: 500px;
+    line-height: 1.75;
+    margin-bottom: 2.8rem;
+  }
+
+  /* CTA Button */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #f5a623;
+    color: #0f4524;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    padding: 1rem 2.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(245,166,35,0.35);
+    margin-bottom: 1.8rem;
+  }
+  .cta-btn:hover {
+    background: #e09518;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(245,166,35,0.45);
+  }
+  .cta-btn:active { transform: translateY(0); }
+  .cta-arrow { font-size: 1.1rem; transition: transform 0.2s; }
+  .cta-btn:hover .cta-arrow { transform: translateX(4px); }
+
+  /* Trust line */
+  .trust {
+    font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+  }
+
+  /* Divider dots */
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 2.5rem 0 0;
+    justify-content: center;
+  }
+  .dot-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .dot-sep { color: rgba(255,255,255,0.2); font-size: 0.5rem; }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 1.2rem 2rem;
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  footer a { color: rgba(255,255,255,0.45); text-decoration: none; margin: 0 0.5rem; }
+  footer a:hover { color: #f5a623; }
+  .footer-links { margin-bottom: 0.4rem; }
+</style>
+</head>
+<body>
+
+<main>
+  <span class="ball">⚽</span>
+  <p class="brand-eyebrow">The World's Game</p>
+  <h1>Welcome to<br><span>Global Football Hub</span></h1>
+  <p class="tagline">Your trusted guide to world football — leagues, tactics, stats, and match analysis for fans everywhere.</p>
+  <a class='cta-btn' href='index.html'>
+    Enter the Guide <span class="cta-arrow">→</span>
+  </a>
+  <p class="trust">Trusted by football fans worldwide 🌍</p>
+  <div class="dots">
+    <span class="dot-item">⚽ Premier League</span>
+    <span class="dot-sep">●</span>
+    <span class="dot-item">🏆 UCL</span>
+    <span class="dot-sep">●</span>
+    <span class="dot-item">🌍 World Cup</span>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href='privacy.html'>Privacy Policy</a>
+    <a href='terms.html'>Terms of Service</a>
+    <a href='contact.html'>Contact</a>
+  </div>
+  © 2025 Global Football Hub — All rights reserved.
+</footer>
+<script src="assets/popup.js"></script>
+</body>
+
+<!-- Mirrored from be-fimal.netlify.app/lander.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jun 2026 08:07:28 GMT -->
+</html>
